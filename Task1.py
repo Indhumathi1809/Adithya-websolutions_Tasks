@@ -1,4 +1,4 @@
-# cross_platform_interaction.py
+
 
 import sqlite3
 
@@ -17,22 +17,21 @@ cursor.execute('''
 ''')
 conn.commit()
 
-# Function to log interactions
+
 def log_interaction(platform, action, data):
     cursor.execute('INSERT INTO interactions (platform, action, data) VALUES (?, ?, ?)', (platform, action, data))
     conn.commit()
 
-# Function to retrieve interactions
 def get_interactions():
     cursor.execute('SELECT * FROM interactions')
     return cursor.fetchall()
 
-# Example usage
+
 if __name__ == "__main__":
-    # Simulate an Android interaction
+    # Android interaction
     log_interaction('Android', 'Button Click', 'Submit Data')
 
-    # Simulate a Windows interaction
+    #  Windows interaction
     log_interaction('Windows', 'Menu Selection', 'Open File')
 
     # Retrieve and print all interactions
